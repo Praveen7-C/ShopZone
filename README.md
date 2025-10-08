@@ -164,3 +164,7 @@ Special thanks to the following technologies and resources:
 
 This project is licensed under the **MIT License**.
 You are free to use, modify, and distribute this project with proper attribution.
+
+---
+
+For any questions or issues, feel free to contact [gmail](praveen.chinna0765@gmail.com).
