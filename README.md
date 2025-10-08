@@ -87,7 +87,7 @@ Example of Another structure:
 
 ### 3. Launch
 
-Double-click on `index.html` or serve it locally using VS Code’s **Live Server** extension.
+Double-click on `index.html` to open in your browser or serve it locally using VS Code’s **Live Server** extension.
 
 ---
 
