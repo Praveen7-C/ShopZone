@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopZone - Your Online Marketplace</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" onclick="showHome()">
+                <i class="fas fa-shopping-bag"></i> ShopZone
+            </a>
+            
+            <div class="search-container d-none d-md-flex">
+                <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+                <button class="search-btn" onclick="searchProducts()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <span class="navbar-text me-3 d-none d-md-inline fw-bold text-white" id="navbarWelcome"></span>
+
+            <div class="navbar-nav ms-auto d-flex flex-row">
+                <a class="nav-link me-3" id="signInLink" href="#" onclick="showLogin()">
+                    <i class="fas fa-user"></i>
+                    <span class="d-none d-md-inline">Sign In</span>
+                </a>
+                <a class="nav-link me-3 d-none" id="signOutLink" href="#" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="d-none d-md-inline">Sign Out</span>
+                </a>
+                <div class="dropdown d-none" id="userDropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user-circle"></i>
+                        <span class="d-none d-md-inline" id="userGreeting"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0" style="min-width: 280px;">
+                        <li class="dropdown-header bg-light text-center py-3">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <i class="fas fa-user-circle fa-2x text-primary me-2"></i>
+                                <div>
+                                    <div class="fw-bold" id="userFullName"></div>
+                                    <small class="text-muted" id="userEmail"></small>
+                                </div>
+                            </div>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><div class="dropdown-item-text px-3 py-2">
+                            <i class="fas fa-phone text-muted me-2"></i>
+                            <strong>Phone:</strong> <span id="userPhone"></span>
+                        </div></li>
+                        <li><div class="dropdown-item-text px-3 py-2">
+                            <i class="fas fa-map-marker-alt text-muted me-2"></i>
+                            <strong>Address:</strong> <span id="userDeliveryAddress"></span>
+                        </div></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item py-2" href="#" onclick="showProfile()">
+                            <i class="fas fa-user-edit text-primary me-2"></i>Edit Profile
+                        </a></li>
+                        <li><a class="dropdown-item py-2" href="#" onclick="showOrderHistory()">
+                            <i class="fas fa-shopping-bag text-success me-2"></i>Order History
+                        </a></li>
+                        <li><a class="dropdown-item py-2" href="#" onclick="showWishlist()">
+                            <i class="fas fa-heart text-danger me-2"></i>Wishlist <span class="badge bg-danger ms-2" id="wishlistBadge">0</span>
+                        </a></li>
+                    </ul>
+                </div>
+
+                <a class="nav-link position-relative" href="#" onclick="showCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="d-none d-md-inline">Cart</span>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Category Navigation -->
+    <nav class="category-nav d-none d-md-block">
+        <div class="container-fluid">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="filterByCategory('all')">All</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="filterByCategory('electronics')">Electronics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="filterByCategory('clothing')">Clothing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="filterByCategory('books')">Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="filterByCategory('home')">Home & Garden</a>
+                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="filterByCategory('sports')">Sports</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="filterByCategory('beauty')">Beauty</a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Search -->
+    <div class="d-md-none p-2" style="background-color: var(--amazon-light-blue);">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search products..." id="mobileSearchInput">
+            <button class="search-btn" onclick="searchProducts(true)">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="app">
+        <!-- Home Page -->
+        <div id="homePage">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="container">
+                    <h1 class="display-4 mb-3">Welcome to ShopZone</h1>
+                    <p class="lead mb-4">Discover amazing products at unbeatable prices</p>
+                    <button class="btn btn-lg btn-light" onclick="document.getElementById('productsSection').scrollIntoView()">
+                        Shop Now <i class="fas fa-arrow-down"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section class="py-5">
+                <div class="container">
+                    <h2 class="text-center mb-5">Shop by Category</h2>
+                    <div class="row" id="categoriesContainer">
+                        <!-- Categories will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Products -->
+            <section class="py-5 bg-light" id="productsSection">
+                <div class="container">
+                    <h2 class="text-center mb-5">Featured Products</h2>
+                    
+                    <!-- Filters -->
+                    <div class="filter-section">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <select class="form-select" id="sortSelect" onchange="sortProducts()">
+                                    <option value="default">Sort by: Default</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                    <option value="rating">Customer Rating</option>
+                                    <option value="name">Name: A to Z</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select" id="categoryFilter" onchange="filterByCategory(this.value)">
+                                    <option value="all">All Categories</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="clothing">Clothing</option>
+                                    <option value="books">Books</option>
+                                    <option value="home">Home & Garden</option>
+                                    <option value="sports">Sports</option>
+                                    <option value="beauty">Beauty</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="range" class="form-range" min="0" max="50000" value="50000" id="priceRange" oninput="filterByPrice()">
+                                <label class="form-label">Max Price: Rs.<span id="priceValue">50000</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" id="productsContainer">
+                        <!-- Products will be loaded here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Cart Page -->
+        <div id="cartPage" style="display: none;">
+            <div class="container py-5">
+                <h2 class="mb-4">Shopping Cart</h2>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div id="cartItems">
+                            <!-- Cart items will be loaded here -->
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="cart-total">
+                            <h4>Order Summary</h4>
+                            <div class="d-flex justify-content-between">
+                                <span>Subtotal:</span>
+                                <span id="cartSubtotal">Rs.0.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Shipping:</span>
+                                <span id="cartShipping">Free</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Tax:</span>
+                                <span id="cartTax">Rs.0.00</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <strong>Total: <span id="cartTotal">Rs.0.00</span></strong>
+                            </div>
+                            <button class="btn btn-cart btn-lg w-100 mt-3" onclick="checkout()">
+                                Proceed to Checkout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wishlist Page -->
+        <div id="wishlistPage" style="display: none;">
+            <div class="container py-5">
+                <h2 class="mb-4">My Wishlist</h2>
+                <div id="wishlistItems" class="row">
+                    <!-- Wishlist items will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Page -->
+        <div id="profilePage" style="display: none;">
+            <div class="container py-5">
+                <h2 class="mb-4 text-center">My Profile</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="profileForm">
+                                    <div class="mb-3">
+                                        <label for="profileName" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" id="profileName" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="profileEmail" class="form-label">Email address</label>
+                                        <input type="email" class="form-control" id="profileEmail" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="profilePhone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="profilePhone" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="profileDeliveryAddress" class="form-label">Delivery Address</label>
+                                        <textarea class="form-control" id="profileDeliveryAddress" rows="3" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-cart">Update Profile</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order History Page -->
+        <div id="orderHistoryPage" style="display: none;">
+            <div class="container py-5">
+                <h2 class="mb-4">Order History</h2>
+                <div id="orderHistoryItems">
+                    <!-- Order history will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-custom">
+                        <h5 class="modal-title">Sign In to ShopZone</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" required>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">
+                                    Remember me
+                                </label>
+                            </div>
+                            <div class="mb-3 text-end">
+                                <a href="#" class="text-decoration-none" onclick="showForgotPassword()">Forgot Password?</a>
+                            </div>
+                            <button type="submit" class="btn btn-cart w-100">Sign In</button>
+                        </form>
+                        <div class="text-center mt-3">
+                            <a href="#" onclick="showRegisterModal()">Don't have an account? Sign up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Modal -->
+        <div class="modal fade" id="registerModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-custom">
+                        <h5 class="modal-title">Create Account</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="registerForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="regName" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="regName" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="regEmail" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="regEmail" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="regPhone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="regPhone" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="regDeliveryAddress" class="form-label">Delivery Address</label>
+                                    <textarea class="form-control" id="regDeliveryAddress" rows="2" required></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="regPassword" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="regPassword" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="regConfirmPassword" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" id="regConfirmPassword" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="acceptTerms" required>
+                                <label class="form-check-label" for="acceptTerms">
+                                    I agree to the Terms and Conditions
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-cart w-100">Create Account</button>
+                        </form>
+                        <div class="text-center mt-3">
+                            <a href="#" onclick="showLoginModal()">Already have an account? Sign in</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forgot Password Modal -->
+        <div class="modal fade" id="forgotPasswordModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-custom">
+                        <h5 class="modal-title">Reset Password</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="forgotPasswordForm">
+                            <div class="mb-3">
+                                <h5 class="mb-3">Change Password</h5>
+                                    <div class="mb-3">
+                                        <label for="currentEmail" class="form-label">Email address</label>
+                                        <input type="Email" class="form-control" id="currentEmail">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="newPassword" class="form-label">New Password</label>
+                                        <input type="password" class="form-control" id="newPassword">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
+                                        <input type="password" class="form-control" id="confirmNewPassword">
+                                    </div>
+                            </div>
+                            <button type="submit" class="btn btn-cart w-100">Reset Password</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout Modal -->
+        <div class="modal fade" id="logoutModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-custom">
+                        <h5 class="modal-title">Confirm Logout</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <i class="fas fa-sign-out-alt fa-3x text-warning mb-3"></i>
+                        <h5>Are you sure you want to logout?</h5>
+                        <p class="text-muted">You will need to sign in again to access your account.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger" onclick="confirmLogout()">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Get to Know Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">About ShopZone</a></li>
+                        <li><a href="#" class="text-light">Careers</a></li>
+                        <li><a href="#" class="text-light">Press Releases</a></li>
+                        <li><a href="#" class="text-light">ShopZone Cares</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Make Money with Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">Sell on ShopZone</a></li>
+                        <li><a href="#" class="text-light">Become an Affiliate</a></li>
+                        <li><a href="#" class="text-light">Advertise Your Products</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>ShopZone Payment Products</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">ShopZone Business Card</a></li>
+                        <li><a href="#" class="text-light">Shop with Points</a></li>
+                        <li><a href="#" class="text-light">Reload Your Balance</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Let Us Help You</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">Your Account</a></li>
+                        <li><a href="#" class="text-light">Your Orders</a></li>
+                        <li><a href="#" class="text-light">Shipping Rates & Policies</a></li>
+                        <li><a href="#" class="text-light">Returns & Replacements</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; <span id="currentYear"></span> ShopZone. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toast" class="toast" role="alert">
+            <div class="toast-header">
+                <i class="fas fa-check-circle text-success me-2"></i>
+                <strong class="me-auto">ShopZone</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body" id="toastMessage">
+                Item added to cart!
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
+                

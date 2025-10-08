@@ -1,0 +1,307 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Smartphone Pro Max",
+      "category": "electronics",
+      "price": 10999.99,
+      "originalPrice": 19999.99,
+      "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&h=200&fit=crop",
+      "rating": 4.5,
+      "reviews": 1250,
+      "description": "Latest smartphone with advanced camera and processing power"
+    },
+    {
+      "id": 2,
+      "name": "Wireless Headphones",
+      "category": "electronics",
+      "price": 1399.99,
+      "originalPrice": 3249.99,
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=200&fit=crop",
+      "rating": 4.3,
+      "reviews": 856,
+      "description": "Premium wireless headphones with noise cancellation"
+    },
+    {
+      "id": 3,
+      "name": "4K Smart TV 55",
+      "category": "electronics",
+      "price": 34999.99,
+      "originalPrice": 107999.99,
+      "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=300&h=200&fit=crop",
+      "rating": 4.5,
+      "reviews": 445,
+      "description": "Ultra HD Smart TV with streaming capabilities"
+    },
+    {
+      "id": 4,
+      "name": "Bluetooth Speaker",
+      "category": "electronics",
+      "price": 449.99,
+      "originalPrice": 999.99,
+      "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=300&h=200&fit=crop",
+      "rating": 4.4,
+      "reviews": 567,
+      "description": "Portable wireless speaker with excellent sound quality"
+    },
+    {
+
+      "id": 5,
+      "name": "Coffee Maker Deluxe",
+      "category": "home",
+      "price": 7999.99,
+      "originalPrice": 13999.99,
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=300&h=200&fit=crop",
+      "rating": 4.4,
+      "reviews": 678,
+      "description": "Premium coffee maker with programmable features"
+    },
+    {
+      "id": 6,
+      "name": "Yoga Mat Premium",
+      "category": "sports",
+      "price": 799.99,
+      "originalPrice": 1299.99,
+      "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300&h=200&fit=crop",
+      "rating": 4.6,
+      "reviews": 234,
+      "description": "High-quality non-slip yoga mat for all levels"
+    },
+    {
+      "id": 7,
+      "name": "Designer T-Shirt",
+      "category": "clothing",
+      "price": 429.99,
+      "originalPrice": 1945.99,
+      "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=200&fit=crop",
+      "rating": 4.2,
+      "reviews": 342,
+      "description": "Comfortable cotton t-shirt with modern design"
+    },
+    {
+      "id": 8,
+      "name": "Winter Jacket",
+      "category": "clothing",
+      "price": 579.99,
+      "originalPrice": 4999.99,
+      "image": "https://images.unsplash.com/photo-1706765779494-2705542ebe74?q=80&w=300&h=200&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "rating": 4.3,
+      "reviews": 189,
+      "description": "Warm and stylish winter jacket"
+    },
+    {
+      "id": 9,
+      "name": "Classic Novel Collection",
+      "category": "books",
+      "price": 324.99,
+      "originalPrice": 439.99,
+      "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=200&fit=crop",
+      "rating": 4.7,
+      "reviews": 125,
+      "description": "Collection of timeless classic novels"
+    },
+    {
+      "id": 10,
+      "name": "Summer Dress",
+      "category": "clothing",
+      "price": 934.99,
+      "originalPrice": 1054.99,
+      "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=300&h=200&fit=crop",
+      "rating": 4.1,
+      "reviews": 123,
+      "description": "Light and breezy summer dress perfect for warm weather"
+    },
+    {
+      "id": 11,
+      "name": "Casual Sneakers",
+      "category": "clothing",
+      "price": 659.99,
+      "originalPrice": 1489.99,
+      "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=200&fit=crop",
+      "rating": 4.4,
+      "reviews": 456,
+      "description": "Comfortable everyday sneakers with modern design"
+    },
+    {
+      "id": 12,
+      "name": "Mystery Thriller Novel",
+      "category": "books",
+      "price": 204.99,
+      "originalPrice":250.99,
+      "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=200&fit=crop",
+      "rating": 4.7,
+      "reviews": 89,
+      "description": "Gripping mystery thriller that keeps you on the edge"
+    },
+    {
+      "id": 13,
+      "name": "Science Fiction Anthology",
+      "category": "books",
+      "price": 728.99,
+      "originalPrice": 799.99,
+      "image": "https://m.media-amazon.com/images/I/71tLc6oIrOL._AC_UY218_.jpg?w=300&h=200&fit=crop",
+      "rating": 4.5,
+      "reviews": 145,
+      "description": "Collection of futuristic science fiction stories"
+    },
+    {
+      "id": 14,
+      "name": "Cookbook: Italian Cuisine",
+      "category": "books",
+      "price": 1116.99,
+      "originalPrice": 1126.99,
+      "image": "https://m.media-amazon.com/images/I/61gO0N4kAfL._AC_UY218_.jpg?w=300&h=200&fit=crop",
+      "rating": 4.6,
+      "reviews": 203,
+      "description": "Authentic Italian recipes for home cooking"
+    },
+    {
+      "id": 15,
+      "name": "Decorative Throw Pillows",
+      "category": "home",
+      "price": 429.99,
+      "originalPrice": 949.99,
+      "image": "https://m.media-amazon.com/images/I/81thaK6gJ6L._AC_UL320_.jpg?w=300&h=200&fit=crop",
+      "rating": 4.3,
+      "reviews": 89,
+      "description": "Set of 4 decorative throw pillows for your sofa"
+    },
+    {
+      "id": 16,
+      "name": "LED Desk Lamp",
+      "category": "home",
+      "price": 434.99,
+      "originalPrice": 954.99,
+      "image": "https://m.media-amazon.com/images/I/61OriYmeJzL._AC_UL320_.jpg?w=300&h=200&fit=crop",
+      "rating": 4.4,
+      "reviews": 267,
+      "description": "Adjustable LED desk lamp with multiple brightness levels"
+    },
+    {
+      "id": 17,
+      "name": "Wall Art Canvas",
+      "category": "home",
+      "price": 399.99,
+      "originalPrice": 559.99,
+      "image": "https://m.media-amazon.com/images/I/71FFo5RlGGL._AC_UL320_.jpg?w=300&h=200&fit=crop",
+      "rating": 4.5,
+      "reviews": 134,
+      "description": "Beautiful landscape canvas print for home decor"
+    },
+    {
+      "id": 18,
+      "name": "Dumbbell Set",
+      "category": "sports",
+      "price": 699.99,
+      "originalPrice": 2499.99,
+      "image": "https://m.media-amazon.com/images/I/51KRWZv9OrL._AC_UL320_.jpg?w=300&h=200&fit=crop",
+      "rating": 4.6,
+      "reviews": 312,
+      "description": "Adjustable dumbbell set for home workouts"
+    },
+    {
+      "id": 19,
+      "name": "Basketball",
+      "category": "sports",
+      "price": 499.99,
+      "originalPrice": 944.99,
+      "image": "https://m.media-amazon.com/images/I/31p67QO+d-L._AC_UL320_.jpg?w=300&h=200&fit=crop",
+      "rating": 4.3,
+      "reviews": 245,
+      "description": "Official size basketball for indoor/outdoor play"
+    },
+    {
+      "id": 20,
+      "name": "Tennis Racket",
+      "category": "sports",
+      "price": 1269.99,
+      "originalPrice": 1689.99,
+      "image": "https://m.media-amazon.com/images/I/614Km2WtNYL._AC_UL320_.jpg?w=300&h=200&fit=crop",
+      "rating": 4.4,
+      "reviews": 198,
+      "description": "Professional tennis racket with comfortable grip"
+    },
+    {
+      "id": 21,
+      "name": "Facial Cleanser",
+      "category": "beauty",
+      "price": 364.99,
+      "originalPrice": 429.99,
+      "image": "https://m.media-amazon.com/images/I/51EFM8yM+ZL._AC_UL320_.jpg",
+      "rating": 4.6,
+      "reviews": 320,
+      "description": "Gentle facial cleanser suitable for sensitive skin"
+    },
+    {
+      "id": 22,
+      "name": "Hydrating Face Mask",
+      "category": "beauty",
+      "price": 429.99,
+      "originalPrice": 949.99,
+      "image": "https://m.media-amazon.com/images/I/81uPO+NbWcL._AC_UL320_.jpg?w=300&h=200&fit=crop",
+      "rating": 4.7,
+      "reviews": 210,
+      "description": "Moisturizing face mask for a radiant and smooth complexion"
+    },
+    {
+      "id": 23,
+      "name": "Luxury Lipstick Set",
+      "category": "beauty",
+      "price": 999.99,
+      "originalPrice": 1439.99,
+      "image": "https://m.media-amazon.com/images/I/71tpYeWoADL._AC_UL320_.jpg",
+      "rating": 4.8,
+      "reviews": 543,
+      "description": "Set of 5 luxury lipsticks with a long-lasting formula"
+    },
+    {
+      "id": 24,
+      "name": "Nail Polish Collection",
+      "category": "beauty",
+      "price": 499.99,
+      "originalPrice": 1029.99,
+      "image": "https://m.media-amazon.com/images/I/71u+kF-85yL._AC_UL320_.jpg?w=300&h=200&fit=crop",
+      "rating": 4.4,
+      "reviews": 380,
+      "description": "Collection of 8 vibrant nail polishes for every occasion"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Electronics",
+      "id": "electronics",
+      "image": "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=300&h=200&fit=crop",
+      "productCount": 5
+    },
+    {
+      "name": "Clothing",
+      "id": "clothing",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=300&h=200&fit=crop",
+      "productCount": 5
+    },
+    {
+      "name": "Books",
+      "id": "books",
+      "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=200&fit=crop",
+      "productCount": 5
+    },
+    {
+      "name": "Home & Garden",
+      "id": "home",
+      "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop",
+      "productCount": 5
+    },
+    {
+      "name": "Sports",
+      "id": "sports",
+      "image": "https://media.istockphoto.com/id/917899790/photo/sport-equipments-on-floor.webp?a=1&b=1&s=612x612&w=0&k=20&c=LeJSJJ00qyth6VRKo3NB94HcQ2fxC-31uLudROHb2lA=",
+      "productCount": 5
+    },
+    {
+      "name": "Beauty",
+      "id": "beauty",
+      "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=200&fit=crop",
+      "productCount": 5
+    }
+  ]
+}
