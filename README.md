@@ -7,7 +7,9 @@ It allows users to register, log in, browse products, filter and sort items, add
 
 This project demonstrates a complete frontend implementation of a modern shopping platform similar to Amazon or Flipkart, without requiring any backend setup.
 
----
+
+[Visit the live website](https://praveen7-c.github.io/ShopZone/) to try out the ShopZone Online Marketplace!
+
 
 ## Features
 
